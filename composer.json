@@ -1,0 +1,13 @@
+{
+    "name": "inexor/blog",
+    "description": "A blog and landing page using F3.",
+    "require": {
+        "kzykhys/git": "0.1.*"
+    },
+    "authors": [
+        {
+            "name": "Fohlen",
+            "email": "lennard@berger.work"
+        }
+    ]
+}
