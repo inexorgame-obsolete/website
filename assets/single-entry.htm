@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<!--
+	Overflow by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Inexor | Stays sauer. Becomes better. </title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<base href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'; ?>" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="assets/css/ie/html5shiv.js"></script><![endif]-->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="assets/css/skel.css" />
+			<link rel="stylesheet" href="assets/css/style.css" />
+		</noscript>
+		
+		<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Generic -->
+			<article class="container box style3">
+				<section>
+					<header>
+						<h3><?php echo Base::instance()->get('content'); ?></h3>
+					</header>
+					<?php
+						$file = Base::instance()->read('data/' . Base::instance()->get('content') . '.md'); 
+						echo Markdown::instance()->convert($file); 
+					?>
+				</section>
+			</article>
+
+		<section id="footer">
+			<ul class="icons">
+				<li><a href="https://www.youtube.com/user/Inexor" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+			</ul>
+			<div class="copyright">
+				<ul class="menu">
+					<li>&copy; Inexor. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</body>
+</html>

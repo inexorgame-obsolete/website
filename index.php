@@ -10,73 +10,25 @@ if ((float)PCRE_VERSION<7.9)
 // Load configuration
 $f3->config('config.ini');
 
-$f3->route('GET /',
-	function($f3) {
-		$classes=array(
-			'Base'=>
-				array(
-					'hash',
-					'json',
-					'session'
-				),
-			'Cache'=>
-				array(
-					'apc',
-					'memcache',
-					'wincache',
-					'xcache'
-				),
-			'DB\SQL'=>
-				array(
-					'pdo',
-					'pdo_dblib',
-					'pdo_mssql',
-					'pdo_mysql',
-					'pdo_odbc',
-					'pdo_pgsql',
-					'pdo_sqlite',
-					'pdo_sqlsrv'
-				),
-			'DB\Jig'=>
-				array('json'),
-			'DB\Mongo'=>
-				array(
-					'json',
-					'mongo'
-				),
-			'Auth'=>
-				array('ldap','pdo'),
-			'Bcrypt'=>
-				array(
-					'mcrypt',
-					'openssl'
-				),
-			'Image'=>
-				array('gd'),
-			'Lexicon'=>
-				array('iconv'),
-			'SMTP'=>
-				array('openssl'),
-			'Web'=>
-				array('curl','openssl','simplexml'),
-			'Web\Geo'=>
-				array('geoip','json'),
-			'Web\OpenID'=>
-				array('json','simplexml'),
-			'Web\Pingback'=>
-				array('dom','xmlrpc')
-		);
-		$f3->set('classes',$classes);
-		$f3->set('content','welcome.htm');
-		echo View::instance()->render('layout.htm');
-	}
-);
+$f3->route('GET /', function($f3) {
+		$entries = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:" --name-only')));
+		$f3->set('entries', $entries);	
+		echo View::instance()->render('index.htm');
+});
 
-$f3->route('GET /userref',
-	function($f3) {
-		$f3->set('content','userref.htm');
-		echo View::instance()->render('layout.htm');
+$f3->route('GET / [ajax]', function($f3) {
+	
+});
+
+$f3->route('GET /blog/@entry', function($f3) {
+	$entry = $f3->clean($f3->get('PARAMS.entry'));
+	
+	if (file_exists('data/' . $entry . '.md')) {
+		$f3->set('content', $entry);
+		echo View::instance()->render('single-entry.htm');
+	} else {
+		$f3->error(404);
 	}
-);
+});
 
 $f3->run();
