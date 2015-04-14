@@ -82,11 +82,15 @@
 					<header>
 						<h3>Blog entries</h3>
 					</header>
-					<ul class="default">
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
+					<ul class="default" style="list-style-type: none">
+						<?php
+							foreach(Base::instance()->get('entries') as $entry)
+							{
+								$details = explode("-", $entry[0]);
+								$ref = pathinfo($entry[1])['filename'];
+								echo '<li><a href="/blog/'.$ref.'">'.$ref.'</a> by '.$details[0].'. Published on '.$details[1].'</li>' . PHP_EOL;
+							}
+						?>
 					</ul>
 				</section>
 			</article>

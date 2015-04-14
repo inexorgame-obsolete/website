@@ -11,7 +11,8 @@ if ((float)PCRE_VERSION<7.9)
 $f3->config('config.ini');
 
 $f3->route('GET /', function($f3) {
-		$entries = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:" --name-only')));
+		$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 2')));
+		$entries = array_chunk($commits, 2);
 		$f3->set('entries', $entries);	
 		echo View::instance()->render('index.htm');
 });
