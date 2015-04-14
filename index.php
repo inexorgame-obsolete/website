@@ -11,7 +11,7 @@ if ((float)PCRE_VERSION<7.9)
 $f3->config('config.ini');
 
 $f3->route('GET /', function($f3) {
-		$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 2')));
+		$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 5')));
 		$entries = array_chunk($commits, 2);
 		$f3->set('entries', $entries);	
 		echo View::instance()->render('index.htm');
@@ -25,10 +25,13 @@ $f3->route('GET /blog/@entry', function($f3) {
 	$entry = $f3->clean($f3->get('PARAMS.entry'));
 	
 	if (file_exists('data/' . $entry . '.md')) {
-		$f3->set('content', $entry);
+		$details = explode("-", shell_exec('cd data; git log --pretty="format:%an - %ad" '.$entry.'.md'));
+		
+		$f3->set('details', $details);
+		$f3->set('entry', $entry);
 		echo View::instance()->render('single-entry.htm');
 	} else {
-		$f3->error(404);
+		$f3->reroute('/');
 	}
 });
 
