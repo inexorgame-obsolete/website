@@ -1121,3 +1121,26 @@
 			{
 				opacity: 1.0;
 			}
+
+/*********************************************************************************/
+/* Single article css                                                            */
+/*********************************************************************************/
+			.box.style4
+			{
+				background: #fff;
+				padding: 3em;
+			}
+			
+			.box.style4 header
+			{
+				text-align: center;
+			}
+			
+			.box.style4 h1
+			{
+				color: red;
+			}
+			
+			.box.style4 ul ol {
+				list-style-position: inside;
+			}

@@ -1,6 +1,9 @@
 {
     "name": "inexor/blog",
     "description": "A blog and landing page using F3.",
+    "require": {
+        "fguillot/picofeed": "0.1.*"
+    },
     "authors": [
         {
             "name": "Fohlen",

@@ -3,6 +3,9 @@
 // Kickstart the framework
 $f3=require('lib/base.php');
 
+// Bootstrap composer
+include_once('vendor/autoload.php');
+
 $f3->set('DEBUG',1);
 if ((float)PCRE_VERSION<7.9)
 	trigger_error('PCRE version is out of date');
@@ -33,6 +36,43 @@ $f3->route('GET /blog/@entry', function($f3) {
 	} else {
 		$f3->reroute('/');
 	}
+});
+	
+$f3->route('GET /feed', function($f3){
+	$writer = new PicoFeed\Syndication\Rss20();
+	$writer->title = 'Inexor';
+	
+	$uri = $f3->get('SCHEME').'://'.$f3->get('HOST').':'.$f3->get('PORT').$f3->get('BASE').'/';
+	$writer->site_url = $uri;
+	$writer->feed_url = $uri . 'feed';
+	
+	$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 10')));
+	$entries = array_chunk($commits, 2);
+	// TODO: Make entries unique
+	
+	foreach($entries as $entry)
+	{
+		$details = explode("-", $entry[0]);
+		$ref = pathinfo($entry[1])['filename'];
+
+		// Get the markdown stuff
+		$file = Base::instance()->read('data/' . $ref . '.md');
+ 		$content = Markdown::instance()->convert($file);
+		
+		$item = array(
+			'title' => $ref,
+			'updated' => strtotime($details[1]),
+			'url' => $uri . '/blog/'.$ref,
+			'content' => $content,
+			'author' => array(
+				'name' => $details[0]
+			)	
+		);
+		
+		array_push($writer->items, $item);
+	}
+	
+	echo $writer->execute();
 });
 
 $f3->run();
