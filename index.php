@@ -13,9 +13,26 @@ if ((float)PCRE_VERSION<7.9)
 // Load configuration
 $f3->config('config.ini');
 
+// Only return one entry / file
+function filter_entries($entries)
+{
+	$files = array();
+	$filtered_entries = array_filter($entries, function($value) use(&$files) {
+		if (in_array($value[1], $files)) {
+			return false;
+		} else {
+			array_push($files, $value[1]);
+			return true;
+		}
+	});
+	
+	return $filtered_entries;
+}
+
 $f3->route('GET /', function($f3) {
 		$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 5')));
 		$entries = array_chunk($commits, 2);
+		$entries = filter_entries($entries);
 		$f3->set('entries', $entries);	
 		echo View::instance()->render('index.htm');
 });
@@ -48,7 +65,7 @@ $f3->route('GET /feed', function($f3){
 	
 	$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 10')));
 	$entries = array_chunk($commits, 2);
-	// TODO: Make entries unique
+	$entries = filter_entries($entries);
 	
 	foreach($entries as $entry)
 	{
