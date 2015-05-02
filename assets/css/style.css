@@ -321,11 +321,11 @@
 				}
 
 		/* Style li elements to look like em dash's */
-		li {
+		.container li {
 			list-style-type: none;
 		}
 	
-		li:before {
+		.container li:before {
 			content: '- '
 		}
 	
