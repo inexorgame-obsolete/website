@@ -54,6 +54,12 @@ $f3->route('GET /blog/@entry', function($f3) {
 		$f3->reroute('/');
 	}
 });
+
+$f3->route('GET|POST /preview', function($f3) {
+	$content = (null !== $f3->get('POST.content')) ? $f3->get('POST.content') : 'No content available.';
+	$f3->set('content', $content);
+	echo View::instance()->render('preview.htm');
+});
 	
 $f3->route('GET /feed', function($f3){
 	$writer = new PicoFeed\Syndication\Rss20();
