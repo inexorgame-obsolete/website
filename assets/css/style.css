@@ -320,6 +320,15 @@
 					margin-left: 0;
 				}
 
+		/* Style li elements to look like em dash's */
+		li {
+			list-style-type: none;
+		}
+	
+		li:before {
+			content: '- '
+		}
+	
 		ol
 		{
 		}
