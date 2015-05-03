@@ -85,7 +85,7 @@ $f3->route('GET /feed', function($f3){
 		$item = array(
 			'title' => $ref,
 			'updated' => strtotime($details[1]),
-			'url' => $uri . '/blog/'.$ref,
+			'url' => $uri . 'blog/'.$ref,
 			'content' => $content,
 			'author' => array(
 				'name' => $details[0]
