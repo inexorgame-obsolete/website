@@ -23,8 +23,8 @@
 			<link rel="stylesheet" href="assets/css/style.css">
 		</noscript>
 		
-		<link rel="alternate" type="application/rss+xml" href="/feed" />
-		<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+		<link rel="alternate" type="application/rss+xml" href="/feed">
+		<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie/v8.css"><![endif]-->
 	</head>
 	<body>
@@ -33,12 +33,11 @@
 			<article class="container box style4">
 				<section>
 					<header>
-						<h3><?php echo Base::instance()->get('entry'); ?></h3>
-						<p>Published by <?php echo Base::instance()->get('details')[0]; ?> on <?php echo Base::instance()->get('details')[1]; ?>.</p>
+						<h2><?php echo Base::instance()->get("title"); ?></h2>
+						<p>Published by <a href="https://github.com/<?php echo Base::instance()->get('author'); ?>"><?php echo Base::instance()->get('author'); ?></a> on <?php echo Base::instance()->get('date'); ?>.</p>
 					</header>
 					<?php
-						$file = Base::instance()->read('data/' . Base::instance()->get('entry') . '.md'); 
-						echo Markdown::instance()->convert($file); 
+						echo Markdown::instance()->convert( Base::instance()->get("article") ); 
 					?>
 				</section>
 			</article>

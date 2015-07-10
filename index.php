@@ -13,6 +13,9 @@ if ((float)PCRE_VERSION<7.9)
 // Load configuration
 $f3->config('config.ini');
 
+require_once("app/readPost.php");
+require_once("app/posts.php");
+
 // Only return one entry / file
 function filter_entries($entries)
 {
@@ -30,26 +33,43 @@ function filter_entries($entries)
 }
 
 $f3->route('GET /', function($f3) {
-		$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 5')));
-		$entries = array_chunk($commits, 2);
-		$entries = filter_entries($entries);
-		$f3->set('entries', $entries);	
-		echo View::instance()->render('index.htm');
+	$getPosts = new posts;
+	
+	$posts = $getPosts->get_latest(5); 
+	
+	$entries = array();
+	
+	foreach($posts AS $post)
+	{
+		$meta = new readPost($post);
+		$entries[] = array("title" => $meta->get_title(), "link" => $meta->get_link(), "date" => $meta->get_date());
+	}
+	
+	$f3->set("entries", $entries);	
+	echo View::instance()->render('index.htm');
 });
 
 $f3->route('GET / [ajax]', function($f3) {
 	
 });
 
-$f3->route('GET /blog/@entry', function($f3) {
+$f3->route('GET /blog/@year/@entry', function($f3) {
 	$entry = $f3->clean($f3->get('PARAMS.entry'));
+	$year = $f3->clean($f3->get('PARAMS.year'));
 	
-	if (file_exists('data/' . $entry . '.md')) {
-		$details = explode("-", shell_exec('cd data; git log --pretty="format:%an - %ad" '.$entry.'.md'));
+	$filePath = "data/post/" . $year . "/" . $entry . ".md";
+	
+	if (file_exists($filePath)) 
+	{
+		//$details = explode("-", shell_exec('cd data; git log --pretty="format:%an - %ad" '.$entry.'.md'));
 		
-		$f3->set('details', $details);
-		$f3->set('entry', $entry);
-		echo View::instance()->render('single-entry.htm');
+		$meta = new readPost($filePath);
+		
+		$f3->set("author", $meta->get_author());
+		$f3->set("title", $meta->get_title());
+		$f3->set("date", $meta->get_date());
+		$f3->set("article",  $meta->get_article());
+		echo View::instance()->render($meta->get_template().".htm");
 	} else {
 		$f3->reroute('/');
 	}
@@ -69,26 +89,24 @@ $f3->route('GET /feed', function($f3){
 	$writer->site_url = $uri;
 	$writer->feed_url = $uri . 'feed';
 	
-	$commits = array_filter(explode("\n", shell_exec('cd data; git log --pretty="format:%an - %ad" --name-only -n 10')));
-	$entries = array_chunk($commits, 2);
-	$entries = filter_entries($entries);
+	$getPosts = new posts;
 	
-	foreach($entries as $entry)
+	$posts = $getPosts->get_latest(15); 
+	
+	foreach($posts AS $post)
 	{
-		$details = explode("-", $entry[0]);
-		$ref = pathinfo($entry[1])['filename'];
-
+		$meta = new readPost($post);
+		
 		// Get the markdown stuff
-		$file = Base::instance()->read('data/' . $ref . '.md');
- 		$content = Markdown::instance()->convert($file);
+ 		$content = Markdown::instance()->convert($meta->get_article());
 		
 		$item = array(
-			'title' => $ref,
-			'updated' => strtotime($details[1]),
-			'url' => $uri . 'blog/'.$ref,
+			'title' => $meta->get_title(),
+			'updated' => strtotime($meta->get_date()),
+			'url' => $uri . 'blog/'.$meta->get_link(),
 			'content' => $content,
 			'author' => array(
-				'name' => $details[0]
+				'name' => $meta->get_author()
 			)	
 		);
 		

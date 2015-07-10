@@ -63,7 +63,7 @@
 						</h2>
 					</header>
 					<ul>
-						<li>Entirely free and open-source.</li>
+						<li>Entirely free and open source.</li>
 						<li>Great development setting.</li>
 						<li>Fast pace gameplay</li>
 						<li>Ingame multiplayer map maker</li>
@@ -95,9 +95,7 @@
 						<?php
 							foreach(Base::instance()->get('entries') as $entry)
 							{
-								$details = explode("-", $entry[0]);
-								$ref = pathinfo($entry[1])['filename'];
-								echo '<li><a href="/blog/'.$ref.'">'.$ref.'</a> by '.$details[0].'. Published on '.$details[1].'</li>' . PHP_EOL;
+								echo '<li><a href="blog/'.$entry["link"].'">'.$entry["title"].'</a>. Published on '.$entry["date"].'</li>' . PHP_EOL;
 							}
 						?>
 					</ul>
