@@ -553,8 +553,13 @@
 		.box
 		{
 			position: relative;
-			margin-top: 9em;
+			margin-top: 1em;
 			margin-bottom: 0;
+		}
+		
+		.box:not(.no-arrow-before)
+		{
+			margin-top: 9em;
 		}
 		
 			.box:after
@@ -568,7 +573,7 @@
 				border-left: solid 1px #fff;
 			}
 		
-			.box:before
+			.box:not(.no-arrow-before):before
 			{
 				content: '';
 				display: block;
@@ -1088,6 +1093,8 @@
 				opacity: 1.0;
 			}
 
+/* INEXOR ADDITIONS */
+
 /*********************************************************************************/
 /* Single article css                                                            */
 /*********************************************************************************/
@@ -1110,3 +1117,61 @@
 			.box.style4 ul ol {
 				list-style-position: inside;
 			}
+			
+.box.style-headbox
+{
+	text-align: center;
+}
+
+	.box.style-headbox header
+	{
+		display: inline-block;
+		background: #fff;
+		padding: 1em 2em 1em 2em;
+		margin: 0;
+	}
+
+		.box.style-headbox header p
+		{
+			padding: 0;
+		}
+	
+	.box.style-headbox .inner
+	{
+		position: relative;
+		padding: 5px 0 0px 0;
+	}
+
+		.box.style-headbox .inner:after
+		{
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			height: 100%;
+			border-left: solid 1px #fff;
+		}
+		
+		.box.style-headbox .inner .row
+		{
+			position: relative;
+		}
+		
+			.box.style-headbox .inner .row:before
+			{
+				content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 20px;
+				width: calc(100% - 40px);
+				border-bottom: solid 1px #fff;
+			}
+
+		.box.style-headbox .inner .image
+		{
+			position: relative;
+			z-index: 1;
+			padding: 20px;
+		}
