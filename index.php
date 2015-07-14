@@ -61,12 +61,12 @@ $f3->route('GET /blog/@year/@entry', function($f3) {
 
 $f3->route("GET /blog", function($f3) {
 	$f3->reroute("/"); // Placeholder
-}
+});
 
 
 $f3->route("GET /blog/@year", function($f3) {
 	$f3->reroute("/"); // Placeholder
-}
+});
 	
 $f3->route('GET|POST /preview', function($f3) {
 	$content = (null !== $f3->get('POST.content')) ? $f3->get('POST.content') : 'No content available.';
