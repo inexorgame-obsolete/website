@@ -1,33 +1,6 @@
-<!DOCTYPE HTML>
-<!--
-	Overflow by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Inexor | Stays sauer. Becomes better. </title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<base href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'; ?>" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="assets/css/ie/html5shiv.js"></script><![endif]-->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.poptrox.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="assets/css/skel.css" />
-			<link rel="stylesheet" href="assets/css/style.css" />
-		</noscript>
-		
-		<link rel="alternate" type="application/rss+xml" href="/feed" />
-		<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie/v8.css" /><![endif]-->
-	</head>
-	<body>
-
+<?php 
+	echo View::instance()->render("head.htm");
+?>
 		<!-- Generic -->
 			<article class="container box style3">
 				<section>
@@ -53,20 +26,6 @@
 				</section>
 			</article>
 
-		<section id="footer">
-			<ul class="icons">
-				<li><a href="https://www.youtube.com/channel/UCKOcY8wxvWq8pGLcESSpfhw" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
-				<li><a href="https://twitter.com/inexorgame" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="https://www.facebook.com/inexorgame" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-				<li><a href="https://github.com/inexor-game" class="icon fa-github"><span class="label">Github</span></a></li>
-				<li><a href="http://docs.inexor.org" class="icon fa-book"><span class="label">Docs</span></a></li>
-			</ul>
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; Inexor. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</section>
-
-	</body>
-</html>
+<?php 
+	echo View::instance()->render("footer.htm");
+?>
