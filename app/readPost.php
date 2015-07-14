@@ -81,7 +81,7 @@ class readPost
 	
 	public function get_summary()
 	{
-		return $this->post["author"];
+		return $this->post["summary"];
 	}
 	
 	public function get_article()
