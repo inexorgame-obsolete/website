@@ -1,7 +1,12 @@
 {
     "name": "inexor/blog",
     "description": "A blog and landing page using F3.",
+    "license": "GPL-3.0",
+     "config": {
+		"vendor-dir": "lib"
+	},
     "require": {
+        "bcosca/fatfree-core": "dev-master",
         "fguillot/picofeed": "0.1.*"
     },
     "authors": [
