@@ -5,7 +5,7 @@ class Blog {
 	
 	public function index()
 	{
-		//\Base::instance()->set('content', 'dashboard/board.htm');
+		\Base::instance()->set('content', 'blog.htm');
 		
 		echo \View::instance()->render('layout.htm');
 	}
