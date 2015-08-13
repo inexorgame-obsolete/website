@@ -11,9 +11,15 @@ if ((float)PCRE_VERSION<7.9)
 // Load configuration
 $f3->config('config.ini');
 
-require_once("app/readPost.php");
-require_once("app/posts.php");
+/*require_once("app/readPost.php");
+require_once("app/posts.php");*/
 
+$f3->route('GET /', 'Controllers\Blog->index');
+$f3->route('GET /@controller', 'Controllers\@controller->index');
+$f3->route('GET /@controller/@action', 'Controllers\@controller->@action');
+$f3->route('GET /@controller/@action/@param', 'Controllers\@controller->@action');
+
+/*
 $f3->route('GET /', function($f3) {
 	$getPosts = new posts;
 	
@@ -105,6 +111,6 @@ $f3->route('GET /feed', function($f3){
 	}
 	
 	echo $writer->execute();
-});
+});*/
 
 $f3->run();
