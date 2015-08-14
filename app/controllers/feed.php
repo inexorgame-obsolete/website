@@ -17,21 +17,21 @@ class Feed {
 		$writer->site_url = $uri;
 		$writer->feed_url = $uri . 'feed';
 		
-		$posts = \Helpers\Posts::instance()->get_latest(15);
+		$posts = \Helpers\Posts::instance()->getLatest(15);
 
 		foreach($posts as $post) {
 			$meta = new \Helpers\Post($post);
 		
 			// Get the markdown stuff
-			$content = \Markdown::instance()->convert($meta->get_article());
+			$content = \Markdown::instance()->convert($meta->content);
 		
 			$item = array(
-					'title' => $meta->get_title(),
-					'updated' => strtotime($meta->get_date()),
-					'url' => $uri . 'blog/'.$meta->get_link(),
+					'title' => $meta->title,
+					'updated' => strtotime($meta->date),
+					'url' => $uri . $meta->link,
 					'content' => $content,
 					'author' => array(
-							'name' => $meta->get_author()
+							'name' => $meta->author
 					)
 			);
 		
