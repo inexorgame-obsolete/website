@@ -1,13 +1,14 @@
 <?php 
+namespace Helpers;
 
-class readPost
+class Post extends \Prefab
 {
 	private $post = array();
 	
-	function __construct($filePath)
+	function __construct($path)
 	{
-		$this->post["filePath"] = $filePath;
-		$handle = fopen($filePath, "r");
+		$this->post["$path"] = $path;
+		$handle = fopen($path, "r");
 	
 		$metaDelimiter = "---";
 		$metaStarted = false;
@@ -93,9 +94,46 @@ class readPost
 	{
 		if($this->post["layout"] == "post")
 		{
-			$tmpLink = str_replace("data/post/", "", $this->post["filePath"]);
+			$tmpLink = str_replace("data/post/", "", $this->post["path"]);
 		}
 		
 		return str_replace(".md", "", $tmpLink);
 	}
 }
+
+/*
+class Post extends \Prefab {
+	private $_meta;
+	public $link;
+	
+	public function __construct($path) {
+		try {
+			$delimiterCount = 0;
+			$metaDelimiter = '---';
+			$handle = fopen('data/post/' . $path, 'r');
+			
+			while ($delimiterCount < 2) {
+				$line = fgets($handle);
+				
+				// Check if markup stops or ends
+				if ($line == $metaDelimiter)
+					$delimiterCount++;
+				
+				$line = explode(':', $line);
+				$key = $line[0];
+				$value = trim($line[0]);
+				
+				$this->_meta[$key] = $value;
+			}
+			
+			$this->link = 'data/path/' . $path;
+		} catch (\Exception $e) {
+			// Need's error logging
+		}
+	}
+	
+	public function __get($key) {
+		return $this->_meta[$key];
+	}
+}
+*/
