@@ -2,18 +2,18 @@
 namespace Helpers;
 
 class Posts extends \Prefab {
-	private $_years; // A list of years
 	private $_posts; // A map of posts [year][post]
 	
 	public function __construct()
 	{
 		$path = 'data/post/';
+		$years = array();
 		
 		foreach(glob($path . '*', GLOB_ONLYDIR) as $dir) {
-			$this->_years[] = basename($dir);
+			$years[] = basename($dir);
 		}
 		
-		foreach($this->_years as $year) {
+		foreach($years as $year) {
 			foreach(glob($path . $year . '/*.md', SCANDIR_SORT_DESCENDING) as $file) {
 				$this->_posts[$year][] = basename($file);
 			}
@@ -38,5 +38,9 @@ class Posts extends \Prefab {
 		}
 		
 		return $posts;
+	}
+	
+	public function getPostsByYear($year, $limit = null) {
+		return array_slice($this->_posts, null, $limit);
 	}
 }

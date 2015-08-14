@@ -1,0 +1,10 @@
+		<?php
+		foreach($members as $member) {
+			echo '<div class="work">';
+			echo '		<a href="'.$member->html_url.'">';
+			echo '			<img src="'.$member->avatar_url.'" class="media" alt="'.$member->login.'"/>';
+			echo '		</a>';
+			echo '</div>';		
+		}
+
+		?>
