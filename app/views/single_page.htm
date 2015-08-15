@@ -9,7 +9,6 @@
 				<?php
 				echo '<h2>Posted by '.$post->author.' on '.$post->date.'</h2>';
 				echo \Markdown::instance()->convert($post->content);
-				
 				?>
 			</div><!-- end content -->
 		</section>
