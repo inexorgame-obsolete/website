@@ -8,7 +8,7 @@ class Team {
 		if (!\Cache::instance()->exists('members')) {
 			$curl = new Curl;
 			$members = $curl->get('https://api.github.com/orgs/inexor-game/members');
-			\Cache::instance()->set('members', $members);
+			\Cache::instance()->set('members', $members, 3600); //TTL = 1h
 		} else {
 			$members = \Cache::instance()->get('members');
 		}

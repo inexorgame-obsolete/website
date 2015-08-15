@@ -3,6 +3,11 @@
 			echo '<div class="work">';
 			echo '		<a href="'.$member->html_url.'">';
 			echo '			<img src="'.$member->avatar_url.'" class="media" alt="'.$member->login.'"/>';
+			echo '			<div class="caption">';
+			echo '				<div class="work_title">';
+			echo '					<h1>'.$member->login.'</h1>';
+			echo '				</div>';
+			echo '			</div>';
 			echo '		</a>';
 			echo '</div>';		
 		}
