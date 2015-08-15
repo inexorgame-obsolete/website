@@ -6,17 +6,16 @@
 
 		<section class="wrapper">
 			<div class="content">
-				<ul style="list-style-type:none;">
 				<?php
 				foreach ($entries as $entry) {
-					echo '<li>';
-					echo '	<h3><a href="'.$entry["link"].'">'.$entry["title"].' by '.$entry["author"].' posted on '.$entry["date"].'</a></h3>';
-					echo '	<p>'.$entry["summary"].'</p>';
-					echo '</li>';
+					echo '<div>';
+					echo '	<h3>'.$entry->title.' by '.$entry->author.' posted on '.$entry->date.'</h3>';
+					echo '	<p>'.$entry->summary.'</br>';
+					echo '	<a href="'.$entry->link.'">Read more</a></p>';
+					echo '</div>';
 				}
 				
 				?>
-				</ul>
 			</div><!-- end content -->
 		</section>
 	</section><!-- end main -->

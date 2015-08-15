@@ -12,7 +12,7 @@ class Blog {
 		foreach($posts as $post)
 		{
 			$meta = new \Helpers\Post($post);
-			$entries[] = array("title" => $meta->title, "link" => $meta->link, "date" => $meta->date, "summary" => $meta->summary);
+			$entries[] = $meta;
 		}
 		
 		\Base::instance()->set("entries", $entries);		
