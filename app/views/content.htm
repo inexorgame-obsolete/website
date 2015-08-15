@@ -1,0 +1,21 @@
+		<section class="top" style="background: url('/assets/img/stretch_image_content.jpg') no-repeat !important;">	
+			<div class="wrapper content_header clearfix">
+				<h1 class="title">Content</h1>
+			</div>		
+		</section><!-- end top -->
+
+		<section class="wrapper">
+			<div class="content">
+				<?php
+				foreach ($items as $item) {
+					echo '<div>';
+					echo '	<h3>'.$item->title.' by '.$item->author.' posted on '.$item->date->format("Y-m-d").'</h3>';
+					echo html_entity_decode($item->content);
+					echo '		<a href="'.$item->url.'">Read more</a>';
+					echo '</div>';
+				}
+				
+				?>
+			</div><!-- end content -->
+		</section>
+	</section><!-- end main -->
