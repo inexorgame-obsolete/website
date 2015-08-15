@@ -1,0 +1,15 @@
+		<section class="top">	
+			<div class="wrapper content_header clearfix">
+				<h1 class="title"><?php echo $post->title?></h1>
+			</div>		
+		</section><!-- end top -->
+
+		<section class="wrapper">
+			<div class="content">
+				<?php
+				echo '<h2>Posted by '.$post->author.' on '.$post->date.'</h2>';
+				echo \Markdown::instance()->convert($post->content);
+				
+				?>
+			</div><!-- end content -->
+		</section>

@@ -12,7 +12,7 @@ class Blog {
 		foreach($posts as $post)
 		{
 			$meta = new \Helpers\Post($post);
-			$entries[] = array("title" => $meta->title, "link" => $meta->link, "date" => $meta->date);
+			$entries[] = array("title" => $meta->title, "link" => $meta->link, "date" => $meta->date, "summary" => $meta->summary);
 		}
 		
 		\Base::instance()->set("entries", $entries);		
@@ -21,7 +21,13 @@ class Blog {
 	
 	public function year()
 	{
-		$params = \Base::instance()->get('PARAMS.year');
-		var_dump($params);
+		$year = \Base::instance()->get('PARAMS.year');
+		$entry = \Base::instance()->get('PARAMS.entry');
+
+		$post = new \Helpers\Post($year . '/' . $entry . '.md');
+		\Base::instance()->set('post', $post);
+		\Base::instance()->set('content', 'single_page.htm');
+		
+		echo \View::instance()->render('layout.htm');
 	}
 }

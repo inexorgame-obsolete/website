@@ -2,7 +2,7 @@
 namespace Helpers;
 
 class Post extends \Prefab {
-	private $_meta;
+	public $_meta;
 	public $link;
 	
 	public function __construct($path) {
@@ -13,19 +13,21 @@ class Post extends \Prefab {
 			
 			while (($line = fgets($handle)) !== false && $delimiterCount < 2) {				
 				// Check if markup stops or ends
-				if (strstr($line, $metaDelimiter))
+				if (strstr($line, $metaDelimiter)) {
 					$delimiterCount++;
+					continue;
+				}
 				
 				$line = explode(':', $line);
 				$key = $line[0];
-				$value = trim($line[0]);
+				$value = trim($line[1]);
 				
 				$this->_meta[$key] = $value;
 			}
 			
-			$this->_meta['content'] = stream_get_contents($handle);
+			$this->content = stream_get_contents($handle);
 			fclose($handle);
-			
+
 			$this->link = 'blog/' . $path;
 			$this->link = str_replace('.md', '', $this->link);
 		} catch (\Exception $e) {
@@ -33,8 +35,10 @@ class Post extends \Prefab {
 		}
 	}
 	
-	public function __get($key) {
-		return $this->_meta[$key];
+	public function __get($name) {
+		if (array_key_exists($name, $this->_meta)) {
+			return $this->_meta[$name];
+		}
 	}
 }
 
