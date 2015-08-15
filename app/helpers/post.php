@@ -2,7 +2,7 @@
 namespace Helpers;
 
 class Post extends \Prefab {
-	public $_meta;
+	private $_meta;
 	public $link;
 	
 	public function __construct($path) {
