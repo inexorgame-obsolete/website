@@ -11,7 +11,7 @@ if ((float)PCRE_VERSION<7.9)
 // Load configuration
 $f3->config('config.ini');
 
-$f3->route('GET /', 'Controllers\Blog->index');
+$f3->route('GET /', 'Controllers\Landing->index');
 $f3->route('GET /blog/@year', 'Controllers\Blog->year');
 $f3->route('GET /blog/@year/@entry', 'Controllers\Blog->year');
 $f3->route('GET /@controller', 'Controllers\@controller->index');
