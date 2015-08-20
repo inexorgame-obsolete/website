@@ -619,17 +619,6 @@ h5, h6          { font-weight: bolder }
 }
 
 /* Custom code */
-.left {
-    /* background-color: Red; */
-    float: left;
-    width: 60%;
-}
-
-.right {
-    /* background-color: Aqua; */
-    margin-left: 50%;
-}
-
 .info ul {
 	list-style-type: none;
 }
