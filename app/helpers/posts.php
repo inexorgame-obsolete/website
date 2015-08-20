@@ -29,7 +29,7 @@ class Posts extends \Prefab {
 	{
 		$posts = array();
 		foreach ($this->_posts as $year => $arr) {
-			foreach($arr as $key => $post) {
+			foreach(array_reverse($arr) as $key => $post) {
 				if (count($posts) >= $limit)
 					break;
 
