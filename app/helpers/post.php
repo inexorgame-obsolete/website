@@ -18,9 +18,11 @@ class Post extends \Prefab {
 					continue;
 				}
 				
-				$line = explode(':', $line);
-				$key = $line[0];
-				$value = trim($line[1]);
+				// Only use ONE substr segment (explode would use any)
+				// Unfortanly explode($line, ':', 1) does not work as expected
+				$pos = strpos($line, ':');
+				$key = substr($line, 0, $pos);
+				$value = trim(substr($line, $pos + 1, strlen($line)));
 				
 				$this->_meta[$key] = $value;
 			}
