@@ -14,7 +14,10 @@ class Posts extends \Prefab {
 		}
 		
 		foreach($years as $year) {
-			foreach(glob($path . $year . '/*.md', SCANDIR_SORT_DESCENDING) as $file) {
+			foreach(scandir($path . $year, SCANDIR_SORT_DESCENDING) as $file) {
+				if (is_dir($file))
+					continue;
+				
 				$this->_posts[$year][] = basename($file);
 			}
 		}
@@ -29,7 +32,7 @@ class Posts extends \Prefab {
 	{
 		$posts = array();
 		foreach ($this->_posts as $year => $arr) {
-			foreach(array_reverse($arr) as $key => $post) {
+			foreach($arr as $key => $post) {
 				if (count($posts) >= $limit)
 					break;
 
