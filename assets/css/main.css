@@ -200,13 +200,13 @@ h5, h6          { font-weight: bolder }
     }
 
 
-    header ul.social li a.google,
-    header ul.social li a.google:hover{
+    header ul.social li a.github,
+    header ul.social li a.github:hover{
         background-position: -31px 0;
     }
 
-    header ul.social li a.behance,
-    header ul.social li a.behance:hover{
+    header ul.social li a.yt,
+    header ul.social li a.yt:hover{
         background-position: -62px 0;
     }
 
