@@ -11,7 +11,7 @@ class Content {
 		
 			// Return a resource
 			if (!\Cache::instance()->exists('resource')) {
-				$resource = $reader->download('https://community.inexor.org/category/5.rss');
+				$resource = $reader->download('https://community.inexor.org/category/6.rss');
 				\Cache::instance()->set('resource', $resource, 3600);
 			} else {
 				$resource = \Cache::instance()->get('resource');
@@ -27,6 +27,7 @@ class Content {
 			// Return a Feed object
 			$feed = $parser->execute();
 		
+			// TODO: Needs to merge all RSS subscriptions of Content category
 			// Print the feed properties with the magic method __toString()
 			\Base::instance()->set('items', $feed->getItems());
 			\Base::instance()->set('content', 'content.htm');
