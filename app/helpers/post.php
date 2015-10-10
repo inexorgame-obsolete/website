@@ -37,7 +37,7 @@ class Post extends \Prefab {
 		switch($key) {
 			case 'layout': return 'post';
 			case 'title': return 'A blog entry';
-			case 'date': return \DateTime('now')->format('d.m.Y H:i:s O');
+			case 'date': return \DateTime('now')->format('d.m.Y H:i O');
 			case 'author': return 'Inexor team';
 			case 'summary': return 'No summary available';
 			case "link":
@@ -62,7 +62,7 @@ class Post extends \Prefab {
 		
 		switch($name)
 		{
-			case "date": return \DateTime($value)->format("d.m.Y H:i:s O");
+			case "date": return date_format(date_create($value), "d.m.Y H:i O");
 			default: return $value;
 		}
 	}
