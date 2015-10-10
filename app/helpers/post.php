@@ -3,10 +3,11 @@ namespace Helpers;
 
 class Post extends \Prefab {
 	private $_meta;
-	public $link;
+	private $filePath;
 	
 	public function __construct($path) {
 		try {
+			$this->filePath = $path;
 			$delimiterCount = 0;
 			$metaDelimiter = '---';
 			$handle = fopen('data/post/' . $path, 'r');
@@ -24,35 +25,45 @@ class Post extends \Prefab {
 				$this->_meta[$key] = $value;
 			}
 			
-			// Set default for empty values
-			foreach ($this->_meta as $meta) {
-				if (empty($meta)) 
-					$this->_meta[$meta] = $this->_setDefault($meta);
-			}
-			
 			$this->content = stream_get_contents($handle);
 			fclose($handle);
 
-			$this->link = 'blog/' . $path;
-			$this->link = str_replace('.md', '', $this->link);
 		} catch (\Exception $e) {
 			// Need's error logging
 		}
 	}
 	
-	private function _setDefault($key) {
+	private function _getDefault($key) {
 		switch($key) {
 			case 'layout': return 'post';
 			case 'title': return 'A blog entry';
-			case 'date': return \DateTime('now')->format('Y-m-d H:i:s O');
+			case 'date': return \DateTime('now')->format('d.m.Y H:i:s O');
 			case 'author': return 'Inexor team';
 			case 'summary': return 'No summary available';
+			case "link":
+				if($this->layout == "post")
+				{
+					$tmpLink = "blog/" . $this->filePath;
+				}
+		
+				return str_replace(".md", "", $tmpLink);
+				break;
 		}
 	}
 	
 	public function __get($name) {
 		if (array_key_exists($name, $this->_meta)) {
-			return $this->_meta[$name];
+			$value = $this->_meta[$name];
+		}
+		else
+		{
+			$value = $this->_getDefault($name);
+		}
+		
+		switch($name)
+		{
+			case "date": return \DateTime($value)->format("d.m.Y H:i:s O");
+			case default: return $value;
 		}
 	}
 }
