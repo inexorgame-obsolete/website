@@ -7,7 +7,7 @@ class Team extends \Prefab {
 	
 	public function __construct()
 	{
-		$handle = fopen("config/team.json", "r");
+		$handle = fopen("data/config/team.json", "r");
 		$this->config = json_decode ( stream_get_contents($handle), true );
 		fclose($handle);
 	}
