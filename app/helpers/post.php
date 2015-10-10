@@ -63,8 +63,7 @@ class Post extends \Prefab {
 		switch($name)
 		{
 			case "date": return \DateTime($value)->format("d.m.Y H:i:s O");
-			case default: return $value;
+			default: return $value;
 		}
 	}
 }
-
