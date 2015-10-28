@@ -5,18 +5,22 @@ class Blog {
 	
 	public function index()
 	{
-		\Base::instance()->set('content', 'blog.htm');		
-		$posts = \Helpers\Posts::instance()->getLatest(15);		
-		$entries = array();
-		
-		foreach($posts as $post)
-		{
-			$meta = new \Helpers\Post($post);
-			$entries[] = $meta;
+		if (!\Cache::instance()->exists('entries')) {
+			$posts = \Helpers\Posts::instance()->getLatest(15);
+			$entries = array();
+			
+			foreach($posts as $post)
+			{
+				$meta = new \Helpers\Post($post);
+				$entries[] = $meta;
+			}
+			
+			\Cache::instance()->set('entries', $entries, 600); //TTL = 10 minutes
+		} else {
+			$entries = \Cache::instance()->get('entries');
 		}
 		
-		\Base::instance()->set("entries", $entries);		
-		echo \View::instance()->render('layout.htm');
+		\Base::instance()->set('entries', $entries);		
 	}
 	
 	public function year()
@@ -26,8 +30,5 @@ class Blog {
 
 		$post = new \Helpers\Post($year . '/' . $entry . '.md');
 		\Base::instance()->set('post', $post);
-		\Base::instance()->set('content', 'single_page.htm');
-		
-		echo \View::instance()->render('layout.htm');
 	}
 }

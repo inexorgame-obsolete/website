@@ -10,7 +10,7 @@ body{
 }
 /*-- banner --*/
 .banner{
-	background:url(../images/banner.jpg) no-repeat 0px 0px;
+	background:url(../img/banner.png) no-repeat 0px 0px;
 	background-size:cover;
 	min-height:800px;
 	border-top:10px solid #d11f2d;
@@ -102,7 +102,7 @@ nav#cbp-spmenu-s2 h3 {
 	letter-spacing:2px;
 }
 .intro p a{
-	background: url(../images/up-arrow.png) no-repeat 33em 1em;
+	background: url(../img/up-arrow.png) no-repeat 33em 1em;
 	display: block;
 	height: 25px;
 }
@@ -127,7 +127,7 @@ nav#cbp-spmenu-s2 h3 {
 /*-- //introduction --*/
 /*-- download --*/
 .download{
-	background:url(../images/1.jpg) no-repeat 0px 0px;
+	background:url(../img/download.png) no-repeat 0px 0px;
 	background-size:cover;
 	min-height:500px;
 	padding:8em 0 0;
@@ -240,49 +240,25 @@ nav#cbp-spmenu-s2 h3 {
   transition: .5s all;
 }
 .ref span{
-	background:url(../images/5.png) no-repeat 0px 0px;
+	background:url(../img/1.png) no-repeat 0px 0px;
 	display:block;
 	height:42px;
 	width:43px;
 }
 .ref1 span{
-	background:url(../images/6.png) no-repeat 0px 0px;
+	background:url(../img/2.png) no-repeat 0px 0px;
 	display:block;
 	height:42px;
 	width:43px;
 }
 .ref2 span{
-	background:url(../images/7.png) no-repeat 0px 0px;
+	background:url(../img/3.png) no-repeat 0px 0px;
 	display:block;
 	height:42px;
 	width:43px;
 }
 .ref3 span{
-	background:url(../images/8.png) no-repeat 0px 0px;
-	display:block;
-	height:42px;
-	width:43px;
-}
-.ref4 span{
-	background:url(../images/9.png) no-repeat 0px 0px;
-	display:block;
-	height:42px;
-	width:43px;
-}
-.ref5 span{
-	background:url(../images/10.png) no-repeat 0px 0px;
-	display:block;
-	height:42px;
-	width:43px;
-}
-.ref6 span{
-	background:url(../images/11.png) no-repeat 0px 0px;
-	display:block;
-	height:42px;
-	width:43px;
-}
-.ref7 span{
-	background:url(../images/12.png) no-repeat 0px 0px;
+	background:url(../img/4.png) no-repeat 0px 0px;
 	display:block;
 	height:42px;
 	width:43px;

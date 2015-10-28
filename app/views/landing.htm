@@ -1,26 +1,394 @@
-		<section class="top" style="background: url('/assets/img/stretch_image_landing.jpg') no-repeat !important;">	
-			<div class="wrapper content_header clearfix">
-				<h1 class="title">Inexor</h1>
-			</div>		
-		</section><!-- end top -->
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
 
-		<section class="wrapper">
-			<div class="content">
-				<iframe id="ytplayer" type="text/html" width="555" height="324" src="https://www.youtube.com/embed/IMtT-dJi410?list=PLCbZc-GgCGzLhkGS5l850tjCQrPUeapK6" style="display: inline; margin-right: 20px; margin-bottom: 20px;" align="left" frameborder="0" allowfullscreen></iframe>
-				<p>Inexor is a fork of the quake-like FPS Cube 2: <a href="http://sauerbraten.org">Sauerbraten</a>. It adds a lot of functionality and tries<br>
-				to stay open for improvements and suggestions. The task is to be more flexible and create an</br>
-				environment where developement is easy and fast and creativity can prosper.</p>
-				<div class="info">
-					<h2>Features</h2>
-					<ul>
-						<li>Entirely free and open source</li>
-						<li>Great development setting</li>
-						<li>Fast pace gameplay</li>
-						<li>Ingame multiplayer map maker</li>
-						<!-- <li>Highly Expandable (JS + HTML5)</li>-->
-					</ul>
+	<title>Inexor | Stays sauer, becomes better.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Territory Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+	<!-- bootstrap -->
+	<link href="assets/css/bootstrap.css" rel='stylesheet' type='text/css' media="all" />
+	<!-- //bootstrap -->
+
+	<!-- Custom Theme files -->
+	<link href="assets/css/style.css" rel='stylesheet' type='text/css' media="all" />
+	<script src="assets/js/jquery-1.8.3.min.js"></script>
+	<!--start-smoth-scrolling-->
+	
+	<!--webfonts-->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+	<!--webfonts-->	
+
+	<!-- top-nav -->
+	<link href="assets/css/component.css" rel="stylesheet" type="text/css"  />
+	<!-- //top-nav -->
+
+	<script type="text/javascript" src="assets/js/move-top.js"></script>
+	<script type="text/javascript" src="assets/js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+	</script>
+	<!-- start-smoth-scrolling -->
+</head>
+
+<body class="cbp-spmenu-push">
+
+<!--banner-->
+	<div class="banner" id="home">
+		<div class="container">
+			<div class="header">
+				<div class="header-left">
+					<a href="index.html"><img src="assets/img/logo.png" alt="" /></a>
 				</div>
-				<p>The current release <i>(Aquarust Alpha Edition)</i> can be obtained from <a href="https://github.com/inexor-game/code/releases">GitHub</a>.</p>
-			</div><!-- end content -->
-		</section>
+				<div class="top-nav">
+					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+						<h3>Menu</h3>
+						<ul>
+							<li><a href="#home" class="scroll">Home</a></li>
+							<li><a href="#services" class="scroll">Community</a></li>
+							<li><a href="#artwork" class="scroll">Artwork</a></li>
+							<li><a href="#team" class="scroll">Team</a></li>
+						</ul>
+					</nav>
+					<div class="main buttonset">	
+							<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+							<button id="showRightPush"><img src="assets/img/menu.png" alt=""/></button>
+							<!--<span class="menu"></span>-->
+					</div>
+					<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+					<script src="assets/js/classie.js"></script>
+					<script>
+					var menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+					showRightPush = document.getElementById( 'showRightPush' ),
+					body = document.body;
+
+					showRightPush.onclick = function() {
+						classie.toggle( this, 'active' );
+						classie.toggle( body, 'cbp-spmenu-push-toleft' );
+						classie.toggle( menuRight, 'cbp-spmenu-open' );
+						disableOther( 'showRightPush' );
+					};
+
+					function disableOther( button ) {
+						if( button !== 'showRightPush' ) {
+							classie.toggle( showRightPush, 'disabled' );
+						}
+					}
+				 </script>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="banner-info">
+					<h3>Inexor</h3>
+					<p>An open-source FPS shooter derived from Cube2: Sauerbraten.</p>
+				</div>
+				<div class="intro">
+					<p>introduction<a href="#introduction" class="scroll"> </a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--//banner-->
+<!--introduction-->
+	<div class="introduction" id="introduction">
+		<div class="container">
+			<h3>What's Inexor?</h3>
+			<p>Inexor is a fork of the quake-like FPS <a href="http://sauerbraten.org">Cube 2: Sauerbraten</a>. It adds a lot of functionality and tries
+			to stay open for improvements and suggestions. The task is to be more flexible and create an
+			environment where developement is easy and fast and creativity can prosper.</p>
+		</div>
+	</div>
+<!--//introduction-->
+<!-- download -->
+	<div class="download">
+		<div class="container">
+			<p>If that's too much of technical details for you, and you
+			simply want to get your hands dirty on playing the game,
+			there you go!</p>
+			<a href="#" class="hvr-bounce-to-bottom">Get it!</a>
+		</div>
+	</div>
+<!-- //download -->
+<!-- logo-singular -->
+	<div class="logo-singular">
+		<div class="container">
+			<h3>Blog</h3>
+			<div class="col-md-6 singular-left">
+				<p class="sing">Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<div class="singular-grids">
+					<div class="singular-grid">
+						<div class="col-md-3 singular-grid-left">
+							<img src="images/1.png" alt=" " />
+						</div>
+						<div class="col-md-9 singular-grid-right">
+							<h4>Contrary to popular random</h4>
+							<p>Lorem ipsum dolor sit amet,adipisicing elit.
+								Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="singular-grid">
+						<div class="col-md-3 singular-grid-left">
+							<img src="images/2.png" alt=" " />
+						</div>
+						<div class="col-md-9 singular-grid-right">
+							<h4> Nemo enim ipsam voluptatem</h4>
+							<p>Lorem ipsum dolor sit amet,adipisicing elit.
+								Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="singular-grid">
+						<div class="col-md-3 singular-grid-left">
+							<img src="images/3.png" alt=" " />
+						</div>
+						<div class="col-md-9 singular-grid-right">
+							<h4>Ut enim ad minima veniam</h4>
+							<p>Lorem ipsum dolor sit amet,adipisicing elit.
+								Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 singular-right">
+				<img src="images/4.png" alt=" " />
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //logo-singular -->
+<!-- services -->
+	<div class="services" id="services">
+		<div class="container">
+			<h3>Community</h3>
+			<div class="service-grids">
+				<div class="col-md-3 services-left">
+					<div class="ref">
+						<span> </span>
+					</div>
+					<div class="single-text">
+						<p>Github</p>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="amet">We feel a strong desire for FLOSS-software, which is why our code is available for everyone to contribute at <a href="https://github.com/inexor-game/">Github</a>.</p>
+				</div>
+				<div class="col-md-3 services-left">
+					<div class="ref1">
+						<span> </span>
+					</div>
+					<div class="single-text">
+						<p>Forum</p>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="amet">Communication is an important of every active community. Therefore we decided to provide <a href="https://community.inexor.org">a forum</a> for everyone!</p>
+				</div>
+				<div class="col-md-3 services-left">
+					<div class="ref2">
+						<span> </span>
+					</div>
+					<div class="single-text">
+						<p>Pad software</p>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="amet">Ever needed to collaboritively work on a document? Share your ideas?
+					We believe everyone in Inexor should have <a href="https://pad.inexor.org">a dedicated place</a> to do this.</p>
+				</div>
+				<div class="col-md-3 services-left">
+					<div class="ref3">
+						<span> </span>
+					</div>
+					<div class="single-text">
+						<p>Documentation</p>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="amet">Documentation is a key priority for any fast and reusable project. We always cover you with <a href="http://docs.inexor.org">the latest API-documentation</a>.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //services -->
+<!-- work -->
+	<div class="work" id="artwork">
+			<h3>Artwork</h3>
+			<div class="work-grids">
+				<div class="work-grid">
+					<a href="assets/img/screenshot/1.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="assets/img/screenshot/6.jpg" alt="" class="img-responsive"/>
+					</a>
+				</div>
+				<div class="work-grid">
+					<a href="images/7.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/7.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="work-grid">
+					<a href="images/8.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/8.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="work-grid">
+					<a href="images/9.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/9.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			
+			<div class="work-grids">
+				<div class="work-grid">
+					<a href="images/10.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/10.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="work-grid">
+					<a href="images/9.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/9.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="work-grid">
+					<a href="images/6.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/6.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="work-grid">
+					<a href="images/7.jpg" class="b-link-stripe b-animate-go swipebox"  title="">
+						<img src="images/7.jpg" alt="" class="img-responsive"/>
+						<div class="b-wrapper">
+							<h2 class="b-animate b-from-left    b-delay03 ">
+								<p>Lorem Ipsum Dolor<span>Consectetur</span></p>
+							</h2>
+						</div>
+					</a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!--swipebox -->	
+				<link rel="stylesheet" href="assets/css/swipebox.css">
+					<script src="assets/js/jquery.swipebox.min.js"></script> 
+					<script type="text/javascript">
+						jQuery(function($) {
+							$(".swipebox").swipebox();
+						});
+					</script>
+				<!--//swipebox Ends -->
+	</div>
+<!-- //work -->
+<!-- about-us -->
+	<div class="about-us" id="team">
+		<div class="container">
+			<h3>Our team</h3>
+			<p class="ut">Inexor consists of a loose team of individuals with their own goals and ideas
+			We see our project as a plattform for any of us to contribute, exchange and learn in a productive manner</p>
+			<div class="about-grids">
+				<div class="col-md-3 about-grid">
+					<img src="images/2.jpg" alt=" "/>
+					<div class="cap">
+						<p>John Donga<span>Founder</span></p>
+					</div>
+ 				</div>
+				<div class="col-md-3 about-grid">
+					<img src="images/4.jpg" alt=" "/>
+					<div class="cap">
+						<p>Danny<span>Chief Engineer</span></p>
+					</div>
+				</div>
+				<div class="col-md-3 about-grid">
+					<img src="images/3.jpg" alt=" "/>
+					<div class="cap">
+						<p>Micheal Willson<span>Builder</span></p>
+					</div>
+				</div>
+				<div class="col-md-3 about-grid">
+					<img src="images/5.jpg" alt=" "/>
+					<div class="cap">
+						<p>James Cameron<span>Builder</span></p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //about-us -->
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-left">
+				<p>&copy; 2015 Inexor. All Rights Reserved | Template by <a href="http://w3layouts.com/">w3layouts</a></p>
+			</div>
+			<div class="footer-right">
+				<ul>
+					<!--  <li><a href="#" class="be"> </a></li>-->
+					<li><a href="https://www.facebook.com/inexorgame" class="face"> </a></li>
+					<!-- <li><a href="#" class="pin"> </a></li>-->
+					<!-- <li><a href="#" class="dri"> </a></li>-->
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		/*$(document).ready(function() {
 		
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+		
+										
+			$().UItoTop({ easingType: 'easeOutQuart' });
+									
+		});*/
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>
