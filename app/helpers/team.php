@@ -7,14 +7,15 @@ class Team extends \Prefab {
 	
 	public function __construct()
 	{
-		$teamFile = \Base::instance()->get('team');
+		$file = \Base::instance()->get('aliases');
 		
 		try {
-			$handle = fopen($teamFile);
+			$handle = fopen($file, 'r');
 			$this->config = json_decode ( stream_get_contents($handle), true );
+			if (!$handle) throw(new \Exception(error_get_last($handle)));
 			fclose($handle);
 		} catch (\Exception $e) {
-			// Add error handling
+			// TODO: Add error handling
 		}
 	}
 	

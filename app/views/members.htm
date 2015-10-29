@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<?php
+	foreach($members as $member) { 
+		echo '<div class="col-md-3 about-grid">' . PHP_EOL;
+		echo '	<img width="225" height="338" alt="'.$aliases[$member->id]["names"]["inexor"].'" src="'.$member->avatar_url.'">' . PHP_EOL;
+		echo '	<div class="cap">' . PHP_EOL;
+		echo '		<p>'.$member->login.'<span>aka '.$aliases[$member->id]["names"]["inexor"].'</span></p>' . PHP_EOL;
+		echo '	</div>' . PHP_EOL;
+		echo '</div>' . PHP_EOL;
+	}
+?>
+		
