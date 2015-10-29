@@ -197,6 +197,21 @@ nav#cbp-spmenu-s2 h3 {
 	color:#fff;
 	margin:0;
 }
+.singular-grid-center{
+	margin-top:1em;
+}
+.singular-grid-center h4{
+	color:#fff;
+	font-weight: 700;
+	font-size: 1.4em;
+	margin:0 0 .5em;
+}
+.singular-grid-center p{
+	font-size: 15px;
+	font-weight: 300;
+	color:#fff;
+	margin:0;
+}
 .singular-grid:nth-child(2){
 	margin:3.5em 0 !important;
 }
