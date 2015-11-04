@@ -3,7 +3,7 @@ namespace Controllers;
 use \Curl\Curl;
 
 class Team {
-	public function getMembers()
+	public function index()
 	{
 		if (!\Cache::instance()->exists('members')) {
 			try {
@@ -20,10 +20,13 @@ class Team {
 			$members = \Cache::instance()->get('members');
 		}
 		
-		return $members;
+		\Base::instance()->set('members', $members);
+		\Base::instance()->set('aliases', $this->getAliases());
+		\Base::instance()->set('content', 'members.htm');
+		echo \View::instance()->render('layout.htm');
 	}
 	
-	public function getAliases() {
+	private function getAliases() {
 		if (!\Cache::instance()->exists('aliases')) {
 			$aliases = \Helpers\Team::instance()->config;
 			\Cache::instance()->set('aliases', $aliases, 3600); //TTL = 1h		

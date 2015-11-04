@@ -1,11 +1,22 @@
-<?php
-	foreach($members as $member) { 
-		echo '<div class="col-md-3 about-grid">' . PHP_EOL;
-		echo '	<img width="225" height="338" alt="'.$aliases[$member->id]["names"]["inexor"].'" src="'.$member->avatar_url.'">' . PHP_EOL;
-		echo '	<div class="cap">' . PHP_EOL;
-		echo '		<p>'.$member->login.'<span>aka '.$aliases[$member->id]["names"]["inexor"].'</span></p>' . PHP_EOL;
-		echo '	</div>' . PHP_EOL;
-		echo '</div>' . PHP_EOL;
-	}
-?>
-		
+<!-- about-us -->
+	<div class="about-us" id="team">
+		<div class="container">
+			<h3>Our team</h3>
+			<p class="ut">Inexor consists of a loose team of individuals with their own goals and ideas
+			We see our project as a plattform for any of us to contribute, exchange and learn in a productive manner</p>
+			<div class="about-grids">
+				<?php
+				foreach($members as $member) { 
+					echo '<div class="col-md-3 about-grid">' . PHP_EOL;
+					echo '	<img width="225" height="338" alt="'.$aliases[$member->id]["names"]["inexor"].'" src="'.$member->avatar_url.'">' . PHP_EOL;
+					echo '	<div class="cap">' . PHP_EOL;
+					echo '		<p>'.$member->login.'<span>aka '.$aliases[$member->id]["names"]["inexor"].'</span></p>' . PHP_EOL;
+					echo '	</div>' . PHP_EOL;
+					echo '</div>' . PHP_EOL;
+				}
+				?>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //about-us -->
