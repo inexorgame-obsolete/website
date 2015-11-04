@@ -13,15 +13,6 @@ class Landing {
 		}
 		
 		\Base::instance()->set('release_url', $release->html_url);
-		
-		// Following, execute the controllers for blog, team and download respectively
-		$blog = new \Controllers\Blog();
-		\Base::instance()->set('entries', $blog->getEntries());
-		
-		$team = new \Controllers\Team();
-		\Base::instance()->set('members', $team->getMembers());
-		\Base::instance()->set('aliases', $team->getAliases());
-		
 		echo \View::instance()->render('landing.htm');
 	}
 }

@@ -12,16 +12,11 @@ if ((float)PCRE_VERSION<7.9)
 $f3->config('config.ini');
 
 $f3->route('GET /', 'Controllers\Landing->index');
-/*
- * 	$f3->route('GET /blog/@year', 'Controllers\Blog->year');
- *	$f3->route('GET /blog/@year/@entry', 'Controllers\Blog->year');
- *	$f3->route('GET /@controller', 'Controllers\@controller->index');
- *	$f3->route('GET /@controller/@action', 'Controllers\@controller->@action');
- *	$f3->route('GET /@controller/@action/@param', 'Controllers\@controller->@action');
- *	
- *	$f3->route('GET / [ajax]', function($f3) {
- *	
- *	});
- */
+$f3->route('GET /blog/@year', 'Controllers\Blog->year');
+$f3->route('GET /blog/@year/@entry', 'Controllers\Blog->year');
+$f3->route('GET /@controller', 'Controllers\@controller->index');
+$f3->route('GET /@controller/@action', 'Controllers\@controller->@action');
+$f3->route('GET /@controller/@action/@param', 'Controllers\@controller->@action');
+
 
 $f3->run();

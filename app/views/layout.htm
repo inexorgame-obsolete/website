@@ -58,11 +58,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
 						<h3>Menu</h3>
 						<ul>
-							<li><a href="/">Home</a></li>
-							<li><a href="/blog">Dev's Blog</a></li>
-							<li><a href="/community">Community</a></li>
-							<li><a href="/team">Our team</a></li>
-							<li><a href="/download">Download</a></li>
+							<li><a href="/" class="scroll">Home</a></li>
+							<li><a href="/blog" class="scroll">Dev's Blog</a></li>
+							<li><a href="/community" class="scroll">Community</a></li>
+							<li><a href="/team" class="scroll">Our team</a></li>
+							<li><a href="/download" class="scroll">Download</a></li>
 						</ul>
 					</nav>
 					<div class="main buttonset">	
@@ -92,37 +92,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				 </script>
 				</div>
 				<div class="clearfix"> </div>
-				<div class="banner-info">
-					<h3>Inexor</h3>
-					<p>An open-source FPS shooter derived from Cube2: Sauerbraten.</p>
-				</div>
-				<div class="intro">
-					<p>introduction<a href="#introduction" class="scroll"> </a></p>
-				</div>
 			</div>
 		</div>
 	</div>
 <!--//banner-->
-<!--introduction-->
-	<div class="introduction" id="introduction">
-		<div class="container">
-			<h3>What's Inexor?</h3>
-			<p>Inexor is a fork of the quake-like FPS <a href="http://sauerbraten.org">Cube 2: Sauerbraten</a>. It adds a lot of functionality and tries
-			to stay open for improvements and suggestions. The task is to be more flexible and create an
-			environment where developement is easy and fast and creativity can prosper.</p>
-		</div>
-	</div>
-<!--//introduction-->
-<!-- download -->
-	<div class="download">
-		<div class="container">
-			<p>If that's too much of technical details for you, and you
-			simply want to get your hands dirty on playing the game,
-			there you go!</p>
-			<a href="<?php echo $release_url ?>" class="hvr-bounce-to-bottom">Get it!</a>			
-		</div>
-	</div>
-<!-- //download -->
+	<?php echo $this->render(Base::instance()->get('content')); ?>
 <!-- footer -->
 	<div class="footer">
 		<div class="container">

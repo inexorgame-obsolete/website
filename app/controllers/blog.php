@@ -3,7 +3,7 @@ namespace Controllers;
 
 class Blog {
 	
-	public function getEntries()
+	public function index()
 	{
 		if (!\Cache::instance()->exists('entries')) {
 			$posts = \Helpers\Posts::instance()->getLatest(15);
@@ -20,15 +20,17 @@ class Blog {
 			$entries = \Cache::instance()->get('entries');
 		}
 		
-		return $entries;
+		\Base::instance()->set('entries', $entries);
+		\Base::instance()->set('content', 'blog.htm');
+		\View::instance()->render('layout.htm');
 	}
 	
-	/* public function year()
+	public function year()
 	{
 		$year = \Base::instance()->get('PARAMS.year');
 		$entry = \Base::instance()->get('PARAMS.entry');
 
 		$post = new \Helpers\Post($year . '/' . $entry . '.md');
 		\Base::instance()->set('post', $post);
-	} */
+	}
 }
