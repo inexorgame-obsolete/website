@@ -22,7 +22,7 @@ class Blog {
 		
 		\Base::instance()->set('entries', $entries);
 		\Base::instance()->set('content', 'blog.htm');
-		\View::instance()->render('layout.htm');
+		echo \View::instance()->render('layout.htm');
 	}
 	
 	public function year()
@@ -32,5 +32,8 @@ class Blog {
 
 		$post = new \Helpers\Post($year . '/' . $entry . '.md');
 		\Base::instance()->set('post', $post);
+		\Base::instance()->set('content', 'single_page.htm');
+		
+		echo \View::instance()->render('layout.htm');
 	}
 }

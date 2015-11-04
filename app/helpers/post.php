@@ -40,16 +40,14 @@ class Post extends \Prefab {
 			case 'date': return \DateTime('now')->format('d.m.Y H:i O');
 			case 'author': return 'Inexor team';
 			case 'summary': return 'No summary available';
-			case "link": return 'https://github.com/inexor-game/blog-data/blob/master/post/' . $this->filePath;
-				/*
-				 * if($this->layout == "post")
-				 * {
-				 *		$tmpLink = "blog/" . $this->filePath;
-				 *	}
-				 *
-				 *	return str_replace(".md", "", $tmpLink);
-				 *	break;
-				 */
+			case "link":
+				if($this->layout == "post")
+				{
+					$tmpLink = "blog/" . $this->filePath;
+				}
+				
+				return str_replace(".md", "", $tmpLink);
+				break;
 		}
 	}
 	
