@@ -165,6 +165,17 @@ nav#cbp-spmenu-s2 h3 {
 	margin:0 0 2em;
 	text-align:center;
 }
+.singular-grid-left img{
+	width:100%;
+}
+.singular-grid-left img:hover{
+	transform: rotateY(360deg);
+	transition: .5s all;
+	-webkit-transition: .5s all;
+	-moz-transition: .5s all;
+	-o-transition: .5s all;
+	-ms-transition: .5s all;
+}
 .singular-left p.sing{
 	font-size: 17px;
 	font-weight: 300;
@@ -176,17 +187,6 @@ nav#cbp-spmenu-s2 h3 {
 }
 .singular-grids{
 	margin:4em 0 0;
-}
-.singular-grid-left img{
-	width:100%;
-}
-.singular-grid-left img:hover{
-	transform: rotateY(360deg);
-	transition: .5s all;
-	-webkit-transition: .5s all;
-	-moz-transition: .5s all;
-	-o-transition: .5s all;
-	-ms-transition: .5s all;
 }
 .singular-grid-right{
 	margin-top:1em;

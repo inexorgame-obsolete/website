@@ -2,20 +2,23 @@
 	<div class="logo-singular">
 		<div class="container">
 			<h3>Blog</h3>
-			<div class="singular-left">
+			<div class="col-md-6 singular-left">
 				<p class="sing">The developer's blog bringing stunning news about all recent changes in code and community..</p>
 				<div class="singular-grids">
 					<?php
 					foreach ($entries as $entry) {
 						echo '<div class="singular-grid-center">';
 						echo '	<h4>'.$entry->title.' by '.$entry->author.' posted on '.$entry->date.'</h4>';
-						echo '	<p>'.$entry->summary;
+						echo '	<p>'.$entry->preview;
 						echo '	<a href="'.$entry->link.'">Read more</a></p>';
 						echo '</div>';
 					}
 					?>
 					<div class="clearfix"></div>
 				</div>
+			</div>
+			<div class="col-md-6 singular-right">
+				<iframe id="ytplayer" width="640" height="360" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLCbZc-GgCGzLhkGS5l850tjCQrPUeapK6" style="display: inline; margin-right: 20px; margin-bottom: 20px;" frameborder="0" align="center" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>

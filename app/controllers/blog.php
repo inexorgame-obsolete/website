@@ -12,6 +12,7 @@ class Blog {
 			foreach($posts as $post)
 			{
 				$meta = new \Helpers\Post($post);
+				$meta->preview = \Helpers\Text::instance()->preview($meta->content);
 				$entries[] = $meta;
 			}
 			
