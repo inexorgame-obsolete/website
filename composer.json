@@ -8,8 +8,7 @@
     "require": {
         "bcosca/fatfree-core": "dev-master",
         "fguillot/picofeed": "0.1.*",
-        "php-curl-class/php-curl-class": "^4.6",
-        "lc5/ftp": "^1.0"
+        "php-curl-class/php-curl-class": "^4.6"
     },
     "authors": [
         {
