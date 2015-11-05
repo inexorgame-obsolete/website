@@ -10,6 +10,8 @@ class Text extends \Prefab {
 	 * Returns a shortened version of a text..
 	 */
 	public function preview($content) {
+		$content = \Markdown::instance()->convert($content);
+		$content = strip_tags($content);
 		return substr($content, 0, 250);
 	}
 }

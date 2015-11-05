@@ -188,6 +188,29 @@ nav#cbp-spmenu-s2 h3 {
 .singular-grids{
 	margin:4em 0 0;
 }
+.singular-grids a{
+	color: #d11f2d;
+}
+.singular-grids li {
+	color: #fff;
+}
+.singular-grids h2 {
+	color:#fff;
+	font-weight: 800;
+	font-size: 2.2em;
+}
+.singular-grids h3 {
+	color:#fff;
+	font-weight: 750;
+	font-size: 1.8em;
+	margin: 0;
+	text-align: left;
+}
+.singular-grids h4 {
+	color:#fff;
+	font-weight: 700;
+	font-size: 1.4em;
+}
 .singular-grid-right{
 	margin-top:1em;
 }
