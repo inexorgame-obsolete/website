@@ -15,7 +15,10 @@ class Team extends \Prefab {
 			if (!$handle) throw(new \Exception(error_get_last($handle)));
 			fclose($handle);
 		} catch (\Exception $e) {
-			// TODO: Add error handling
+			$logger = new \Log('error.log');
+			$logger->write($e->getMessage());
+			// Trigger an error
+			\Base::instance()->error(500);
 		}
 	}
 	

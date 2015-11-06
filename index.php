@@ -10,7 +10,6 @@ if ((float)PCRE_VERSION<7.9)
 
 /**
  * TODO: Notes
- * Add various error routines to the file handler functions (if not, look up the helpers)
  * Add a caching for the feed module..
  * Implement a download page
  * 	- use an FTP library to connect to our host

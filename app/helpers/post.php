@@ -29,7 +29,10 @@ class Post extends \Prefab {
 			fclose($handle);
 
 		} catch (\Exception $e) {
-			// Need's error logging
+			$logger = new \Log('error.log');
+			$logger->write($e->getMessage());
+			// Trigger an error
+			\Base::instance()->error(500);
 		}
 	}
 	

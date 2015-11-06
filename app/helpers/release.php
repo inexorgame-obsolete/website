@@ -18,7 +18,10 @@ class Release extends \Prefab {
 				
 			if ($curl->error) throw(new \Exception($curl->errorMessage));
 		} catch (\Exception $e) {
-			// TODO: Add error handling
+			$logger = new \Log('error.log');
+			$logger->write($e->getMessage());
+			// Trigger an error
+			\Base::instance()->error(500);
 		}
 	}
 	
