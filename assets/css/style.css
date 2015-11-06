@@ -13,13 +13,13 @@ body{
 	background:url(../img/banner.png) no-repeat 0px 0px;
 	background-size:cover;
 	min-height:800px;
-	border-top:10px solid #d11f2d;
+	/*border-top:10px solid #d11f2d;*/
 }
 .banner-main{
 	background:url(../img/banner-main.png) no-repeat 0px 0px;
 	background-size:cover;
 	min-height:350px;
-	border-top:10px solid #d11f2d;
+	/*border-top:10px solid #d11f2d;*/
 }
 .header{
 	padding:1em 0 0;
