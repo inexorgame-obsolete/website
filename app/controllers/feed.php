@@ -27,7 +27,7 @@ class Feed {
 				$item = array(
 					'title' => $meta->title,
 					'updated' => strtotime($meta->date),
-					'url' => $uri . $meta->link,
+					'url' => $this->_uri . $meta->link,
 					'content' => $content,
 					'author' => array(
 						'name' => $meta->author
