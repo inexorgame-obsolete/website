@@ -12,7 +12,6 @@ if ((float)PCRE_VERSION<7.9)
  * TODO: Notes
  * Add various error routines to the file handler functions (if not, look up the helpers)
  * Add a caching for the feed module..
- * Add a custom 404 page and add a route for it
  * Implement a download page
  * 	- use an FTP library to connect to our host
  * 	- filter all master builds
@@ -28,5 +27,9 @@ $f3->route('GET /@controller', 'Controllers\@controller->index');
 $f3->route('GET /@controller/@action', 'Controllers\@controller->@action');
 $f3->route('GET /@controller/@action/@param', 'Controllers\@controller->@action');
 
+$f3->set('ONERROR', function($f3) {
+	$f3->set('content', 'error.htm');
+	echo \View::instance()->render('layout.htm');
+});
 
 $f3->run();
