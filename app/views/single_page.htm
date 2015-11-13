@@ -6,7 +6,7 @@
 				<div class="singular-grids">
 					<div class="singular-grid-center">
 					<?php
-					echo '<h2>Posted by '.$post->author.' on '.$post->date.'</h2>';
+					echo '<h4>Posted by '.$post->author.' on '.$post->date.'</h4>';
 					echo \Markdown::instance()->convert($post->content);
 					?>
 					</div>
