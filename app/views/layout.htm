@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	
-	<title>Inexor | Stays sauer, becomes better.</title>
+	<title>Inexor | <?php if(Base::instance()->get("title")!= NULL) { echo Base::instance()->get("title"); } else { echo "Stays sauer, becomes better."; } ?></title>
 	<!-- <meta name="keywords" content="" />-->
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/inexor.ico">
 	<base href="/">
@@ -18,11 +18,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 	<!-- bootstrap -->
 	<link href="assets/css/bootstrap.css" rel='stylesheet' type='text/css' media="all">
-	<!-- //bootstrap -->
 
 	<!-- font awesome -->
 	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-	<!-- //font awesome -->
 	
 	<!-- Custom Theme files -->
 	<link href="assets/css/style.css" rel='stylesheet' type='text/css' media="all">
