@@ -62,7 +62,7 @@ class Post extends \Prefab {
 		}
 		
 		switch($name) {
-			case "date": return date_format(date_create($value), "d.m.Y H:i O");
+			case "date": return date_format(date_create($value), "d.m.Y H:i");
 			default: return $value;
 		}
 	}
