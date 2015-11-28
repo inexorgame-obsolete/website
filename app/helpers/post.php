@@ -66,4 +66,9 @@ class Post extends \Prefab {
 			default: return $value;
 		}
 	}
+	
+	public function __set($name, $value) {
+		if (!array_key_exists($name, $this->_meta))
+			$this->_meta[$name] = $value;
+	}
 }
