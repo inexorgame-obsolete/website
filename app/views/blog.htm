@@ -1,25 +1,21 @@
 <!-- logo-singular -->
-	<div class="logo-singular">
+<div class="logo-singular">
 		<div class="container">
 			<h3>Blog</h3>
 			<div class="col-md-6 singular-left">
 				<p class="sing">The developer's blog bringing stunning news about all recent changes in code and community..</p>
-				<div class="singular-grids">
-					<?php
-					foreach ($entries as $entry) {
-						echo '<div class="singular-grid-center">';
-						echo '	<h4><a href="'.$entry->link.'">'.$entry->title.' posted on '.$entry->date.'</a></h4>';
-						echo '	<p>'.$entry->preview;
-						echo '	<a href="'.$entry->link.'">(...)</a></p>';
-						echo '</div>';
-					}
-					?>
-					<div class="clearfix"></div>
+				<div class="singular-grid-center">
+				<repeat group="{{ @entries }}" value="{{ @entry }}">
+						<h4><a href="{{ @entry->link }}">{{ @entry->title }} posted on {{ @entry->date }}</a></h4>
+						<p>{{ @entry->preview }}</p>
+						<a href="{{ @entry->link }}">(...)</a>
+						<div class="clearfix"></div>
+				</repeat>
 				</div>
 			</div>
 			<div class="col-md-6 singular-right responsive-video">
 				<iframe id="ytplayer" width="1600" height="900" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLCbZc-GgCGzLhkGS5l850tjCQrPUeapK6" style="display: inline; margin-right: 20px; margin-bottom: 20px;" frameborder="0" align="center" allowfullscreen></iframe>
 			</div>
-		</div>
 	</div>
-<!-- //logo-singular -->
+</div>
+<!-- //logo-singular -->	

@@ -1,14 +1,12 @@
 <!-- logo-singular -->
 	<div class="logo-singular">
 		<div class="container">
-			<h3><?php echo $post->title?></h3>
+			<h3>{{ @post->title }}</h3>
 			<div class="singular-left">
 				<div class="singular-grids">
 					<div class="singular-grid-center">
-					<?php
-					echo '<h4>Posted by '.$post->author.' on '.$post->date.'</h4>';
-					echo \Markdown::instance()->convert($post->content);
-					?>
+					<h4>Posted by {{ @post->author }} on {{ @post->date }}</h4>
+					<p>{{ \Markdown::instance()->convert(@post->content) }}</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
