@@ -10,7 +10,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	
-	<title>Inexor</title>
+	<check if="{{ !empty(@title) }}">
+		<true><title>Inexor | {{ @post->title }}</title></true>
+		<false><title>Inexor | Stays sauer, becomes better.</title></false>
+	</check>
+	
 	<!-- <meta name="keywords" content="" />-->
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/inexor.ico">
 	<base href="/">
