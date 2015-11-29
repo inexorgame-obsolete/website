@@ -5,7 +5,6 @@ use \Curl\Curl;
 class Team {
 	public function index()
 	{
-		apcu_clear_cache('user');
 		if (!\Cache::instance()->exists('members')) {
 			try {
 				$curl = new Curl;
