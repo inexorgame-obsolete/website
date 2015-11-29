@@ -24,7 +24,7 @@ class Blog {
 		\Base::instance()->set('entries', $entries);
 		\Base::instance()->set('content', 'blog.htm');
 		\Base::instance()->set('title', 'Blog');
-		echo \View::instance()->render('layout.htm');
+		echo \Template::instance()->render('layout.htm');
 	}
 	
 	public function year()
@@ -37,6 +37,6 @@ class Blog {
 		\Base::instance()->set('content', 'single_page.htm');
 		\Base::instance()->set('title', $post->title);
 		
-		echo \View::instance()->render('layout.htm');
+		echo \Template::instance()->render('layout.htm');
 	}
 }

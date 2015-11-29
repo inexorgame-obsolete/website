@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	
-	<title>Inexor | <?php if(Base::instance()->get("title")!= NULL) { echo Base::instance()->get("title"); } else { echo "Stays sauer, becomes better."; } ?></title>
+	<title>Inexor</title>
 	<!-- <meta name="keywords" content="" />-->
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/inexor.ico">
 	<base href="/">
@@ -100,7 +100,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 <!--//banner-->
-	<?php echo $this->render(Base::instance()->get('content')); ?>
+	<include href="{{ @content }}" />
 <!-- footer -->
 	<div class="footer">
 		<div class="container">

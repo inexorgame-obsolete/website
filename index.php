@@ -29,7 +29,7 @@ $f3->redirect('GET /yt', 'https://www.youtube.com/channel/UCKOcY8wxvWq8pGLcESSpf
 
 $f3->set('ONERROR', function($f3) {
 	$f3->set('content', 'error.htm');
-	echo \View::instance()->render('layout.htm');
+	echo \Template::instance()->render('layout.htm');
 });
 
 $f3->run();

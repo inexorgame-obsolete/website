@@ -13,6 +13,6 @@ class Landing {
 		}
 		
 		\Base::instance()->set('release_url', $release->html_url);
-		echo \View::instance()->render('landing.htm');
+		echo \Template::instance()->render('landing.htm');
 	}
 }
