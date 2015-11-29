@@ -24,7 +24,6 @@ class Blog {
 		\Base::instance()->set('entries', $entries);
 		\Base::instance()->set('content', 'blog.htm');
 		\Base::instance()->set('title', 'Blog');
-		echo \Template::instance()->render('layout.htm');
 	}
 	
 	public function year()
@@ -35,8 +34,10 @@ class Blog {
 		$post = new \Helpers\Post($year . '/' . $entry . '.md');
 		\Base::instance()->set('post', $post);
 		\Base::instance()->set('content', 'single_page.htm');
-		\Base::instance()->set('title', $post->title);
-		
+		\Base::instance()->set('title', $post->title);		
+	}
+	
+	public function afterRoute() {
 		echo \Template::instance()->render('layout.htm');
 	}
 }

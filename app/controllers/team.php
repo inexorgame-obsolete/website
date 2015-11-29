@@ -5,7 +5,6 @@ use \Curl\Curl;
 class Team {
 	public function index()
 	{
-		apcu_clear_cache('user');
 		if (!\Cache::instance()->exists('members')) {
 			try {
 				$curl = new Curl;
@@ -32,6 +31,9 @@ class Team {
 		
 		\Base::instance()->set('members', $members);
 		\Base::instance()->set('content', 'members.htm');
+	}
+	
+	public function afterRoute() {
 		echo \Template::instance()->render('layout.htm');
 	}
 	

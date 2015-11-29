@@ -13,6 +13,9 @@ class Landing {
 		}
 		
 		\Base::instance()->set('release_url', $release->html_url);
+	}
+	
+	public function afterRoute() {
 		echo \Template::instance()->render('landing.htm');
 	}
 }
