@@ -44,6 +44,10 @@ class Posts extends \Prefab {
 	}
 	
 	public function getPostsByYear($year, $limit = null) {
-		return array_slice($this->_posts, null, $limit);
+		$posts = array();
+		foreach (array_slice($this->_posts[$year], null, $limit) as $post)
+			$posts[] = $year . '/' . $post;
+		
+		return $posts;
 	}
 }
