@@ -36,10 +36,6 @@ class Blog {
 		\Base::instance()->set('title', $post->title);		
 	}
 	
-	public function afterRoute() {
-		echo \Template::instance()->render('layout.htm');
-	}
-	
 	public function year()
 	{
 		$year = \Base::instance()->get('PARAMS.year');
