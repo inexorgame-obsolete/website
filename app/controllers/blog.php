@@ -23,20 +23,44 @@ class Blog {
 		
 		\Base::instance()->set('entries', $entries);
 		\Base::instance()->set('content', 'blog.htm');
-		\Base::instance()->set('title', 'Blog');
+		echo \Template::instance()->render('layout.htm');
+	}
+	
+	public function entry() {
+		$year = \Base::instance()->get('PARAMS.year');
+		$entry = \Base::instance()->get('PARAMS.entry');
+		
+		$post = new \Helpers\Post($year . '/' . $entry . '.md');
+		\Base::instance()->set('post', $post);
+		\Base::instance()->set('content', 'single_page.htm');
+		\Base::instance()->set('title', $post->title);
+		
 		echo \Template::instance()->render('layout.htm');
 	}
 	
 	public function year()
 	{
 		$year = \Base::instance()->get('PARAMS.year');
-		$entry = \Base::instance()->get('PARAMS.entry');
-
-		$post = new \Helpers\Post($year . '/' . $entry . '.md');
-		\Base::instance()->set('post', $post);
-		\Base::instance()->set('content', 'single_page.htm');
-		\Base::instance()->set('title', $post->title);
 		
+		if (!\Cache::instance()->exists('year_entries')) {
+			$posts = \Helpers\Posts::instance()->getPostsByYear($year);
+			$entries = array();
+				
+			foreach($posts as $post)
+			{
+				$meta = new \Helpers\Post($post);
+				$meta->preview = \Helpers\Text::instance()->preview($meta->content);
+				$entries[] = $meta;
+			}
+				
+			\Cache::instance()->set('year_entries', $entries, 600); //TTL = 10 minutes
+		} else {
+			$entries = \Cache::instance()->get('year_entries');
+		}
+		
+		\Base::instance()->set('entries', $entries);
+		\Base::instance()->set('content', 'blog.htm');
+		\Base::instance()->set('title', 'Blog');
 		echo \Template::instance()->render('layout.htm');
 	}
 }
