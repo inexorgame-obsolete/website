@@ -5,16 +5,14 @@
 			<p class="ut">Inexor consists of a loose team of individuals with their own goals and ideas
 			We see our project as a plattform for any of us to contribute, exchange and learn in a productive manner</p>
 			<div class="about-grids">
-				<?php			
-				foreach($members as $member) { 
-					echo '<div class="col-md-3 about-grid">' . PHP_EOL;
-					echo '	<img width="225" height="338" alt="'.$aliases[$member->id]["names"]["inexor"].'" src="'.$member->avatar_url.'">' . PHP_EOL;
-					echo '	<div class="cap">' . PHP_EOL;
-					echo '		<p>'.$member->login.'<span>aka '.$aliases[$member->id]["names"]["inexor"].'</span></p>' . PHP_EOL;
-					echo '	</div>' . PHP_EOL;
-					echo '</div>' . PHP_EOL;
-				}
-				?>
+				<repeat group="{{ @members }}" value="{{ @member }}">
+					<div class="col-md-3 about-grid">
+						<img width="225" height="338" alt="{{ @member->alias }}" src="{{ @member->avatar_url }}" />
+						<div class ="cap">
+							<p>{{ @member->login }} <span>aka {{ @member->alias }}</span></p>
+						</div>
+					</div>
+				</repeat>
 				<div class="clearfix"></div>
 			</div>
 		</div>
