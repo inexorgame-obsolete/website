@@ -25,8 +25,6 @@ $f3->route('GET /@controller', 'Controllers\@controller->index');
 $f3->route('GET /@controller/@action', 'Controllers\@controller->@action');
 $f3->route('GET /@controller/@action/@param', 'Controllers\@controller->@action');
 
-$f3->redirect('GET /yt', 'https://www.youtube.com/channel/UCKOcY8wxvWq8pGLcESSpfhw');
-
 $f3->set('ONERROR', function($f3) {
 	$f3->set('content', 'error.htm');
 	echo \Template::instance()->render('layout.htm');

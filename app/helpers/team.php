@@ -7,7 +7,7 @@ class Team extends \Prefab {
 	
 	public function __construct()
 	{
-		$file = \Base::instance()->get('aliases');
+		$file = \Base::instance()->get('site.aliases');
 		
 		try {
 			$handle = fopen($file, 'r');
