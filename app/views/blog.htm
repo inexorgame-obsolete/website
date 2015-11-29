@@ -4,13 +4,15 @@
 			<h3>Blog</h3>
 			<div class="col-md-6 singular-left">
 				<p class="sing">The developer's blog bringing stunning news about all recent changes in code and community..</p>
-				<div class="singular-grid-center">
+				<div class="singular-grids">
 				<repeat group="{{ @entries }}" value="{{ @entry }}">
-						<h4><a href="{{ @entry->link }}">{{ @entry->title }} posted on {{ @entry->date }}</a></h4>
-						<p>{{ @entry->preview }}</p>
-						<a href="{{ @entry->link }}">(...)</a>
-						<div class="clearfix"></div>
+						<div class="singular-grid-center">
+							<h4><a href="{{ @entry->link }}">{{ @entry->title }} posted on {{ @entry->date }}</a></h4>
+							<p>{{ @entry->preview }}</p>
+							<a href="{{ @entry->link }}">(...)</a>
+						</div>
 				</repeat>
+				<div class="clearfix"></div>
 				</div>
 			</div>
 			<div class="col-md-6 singular-right responsive-video">
