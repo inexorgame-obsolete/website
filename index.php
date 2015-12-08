@@ -18,19 +18,21 @@ if ((float)PCRE_VERSION<7.9)
 // Load configuration
 $f3->config('config.ini');
 
+// Specific controllers
 $f3->route('GET /', 'Controllers\Landing->index');
 $f3->route('GET /blog/@year', 'Controllers\Blog->year');
 $f3->route('GET /blog/@year/@entry', 'Controllers\Blog->entry');
+$f3->route('GET /download/index [ajax]', 'Controllers\Download->request');
 
+// Generic routing
 $f3->route('GET /@controller', 'Controllers\@controller->index');
 $f3->route('GET /@controller/@action', 'Controllers\@controller->@action');
 $f3->route('GET /@controller/@action/@param', 'Controllers\@controller->@action');
 
+// Error handling
 $f3->set('ONERROR', function($f3) {
 	$f3->set('content', 'error.htm');
 	echo \Template::instance()->render('layout.htm');
 });
-
-$f3->redirect('GET /yt', 'https://www.youtube.com/channel/UCKOcY8wxvWq8pGLcESSpfhw');
 
 $f3->run();
