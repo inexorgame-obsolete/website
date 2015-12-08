@@ -9,7 +9,6 @@
         "bcosca/fatfree-core": "dev-master",
         "fguillot/picofeed": "0.1.*",
         "php-curl-class/php-curl-class": "^4.6",
-        "dg/ftp-php": "^1.2"
     },
     "authors": [
         {
