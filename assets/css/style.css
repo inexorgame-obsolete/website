@@ -176,7 +176,7 @@ nav#cbp-spmenu-s2 h3 {
 	font-size: 17px;
 	font-weight: 300;
 	color:#fff;
-	margin:0;
+	margin: 0.313em 0;
 }
 .singular-right img{
 	width:100%;
@@ -225,17 +225,24 @@ nav#cbp-spmenu-s2 h3 {
 .singular-grid-center{
 	margin-top:1em;
 }
+.singular-grid-center img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: 1em;
+	width: 40%;
+}
 .singular-grid-center h4{
 	color:#fff;
 	font-weight: 700;
 	font-size: 1.4em;
-	margin: 5px 0;
+	margin: 0.313em 0;
 }
 .singular-grid-center p{
 	font-size: 15px;
 	font-weight: 300;
 	color:#fff;
-	margin:0;
+	margin: 0.313em 0;
 }
 .singular-grid:nth-child(2){
 	margin:3.5em 0 !important;
