@@ -1,1 +1,6 @@
-/lib/
+# Libraries as well as temporary folders
+lib*
+tmp*
+
+# Composer specific
+composer.lock
