@@ -29,15 +29,22 @@ class Posts extends \Prefab {
 	}
 	
 	public function getLatest($limit = 5)
-	{
+	{	
 		$posts = array();
-		foreach ($this->_posts as $year => $arr) {
-			foreach($arr as $key => $post) {
+		// This iterates backward through the list, since we want to start with the latest year
+		// Notably, this is fucking retarded, but what else can we do?
+		end($this->_posts); // Reset the array
+		
+		for ($i = count($this->_posts); $i > 0; $i--) {
+			$year = key($this->_posts);
+			foreach(current($this->_posts) as $key => $post) {
 				if (count($posts) >= $limit)
 					break;
 
 				$posts[] =  $year . '/' . $post;
 			}
+			
+			prev($this->_posts);
 		}
 		
 		return $posts;
