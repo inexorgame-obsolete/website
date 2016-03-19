@@ -40,20 +40,20 @@ class Blog {
 	{
 		$year = \Base::instance()->get('PARAMS.year');
 		
-		if (!\Cache::instance()->exists('year_entries')) {
+		if (!\Cache::instance()->exists('year_entries_'.$year)) {
 			$posts = \Helpers\Posts::instance()->getPostsByYear($year);
 			$entries = array();
-				
+
 			foreach($posts as $post)
 			{
 				$meta = new \Helpers\Post($post);
 				$meta->preview = \Helpers\Text::instance()->preview($meta->content);
 				$entries[] = $meta;
 			}
-				
-			\Cache::instance()->set('year_entries', $entries, 600); //TTL = 10 minutes
+
+			\Cache::instance()->set('year_entries_'.$year, $entries, 600); //TTL = 10 minutes
 		} else {
-			$entries = \Cache::instance()->get('year_entries');
+			$entries = \Cache::instance()->get('year_entries_'.$year);
 		}
 		
 		\Base::instance()->set('entries', $entries);
