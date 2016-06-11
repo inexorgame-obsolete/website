@@ -9,7 +9,7 @@
 					<div class="col-md-3 about-grid">
 						<img width="225" height="338" alt="{{ @member->alias }}" src="{{ @member->avatar_url }}">
 						<div class ="cap">
-							<p>{{ @member->login }} 
+							<p><a href="{{ @member->html_url }}">{{ @member->login }}</a>
 							<check if="{{ @member->alias!='' }}">
 								<span>aka {{ @member->alias }}</span>
 							</check>
