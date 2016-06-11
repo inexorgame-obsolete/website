@@ -2,14 +2,18 @@
 	<div class="about-us" id="team">
 		<div class="container">
 			<h3>Our team</h3>
-			<p class="ut">Inexor consists of a loose team of individuals with their own goals and ideas
-			We see our project as a plattform for any of us to contribute, exchange and learn in a productive manner</p>
+			<p class="ut">Inexor consists of a loose team of individuals with their own goals and ideas.
+			We see our project as a platform for any of us to contribute, exchange and learn in a productive manner while creating an awesome game.</p>
 			<div class="about-grids">
 				<repeat group="{{ @members }}" value="{{ @member }}">
 					<div class="col-md-3 about-grid">
-						<img width="225" height="338" alt="{{ @member->alias }}" src="{{ @member->avatar_url }}" />
+						<img width="225" height="338" alt="{{ @member->alias }}" src="{{ @member->avatar_url }}">
 						<div class ="cap">
-							<p>{{ @member->login }} <span>aka {{ @member->alias }}</span></p>
+							<p>{{ @member->login }} 
+							<check if="{{ @member->alias!='' }}">
+								<span>aka {{ @member->alias }}</span>
+							</check>
+							</p>
 						</div>
 					</div>
 				</repeat>
