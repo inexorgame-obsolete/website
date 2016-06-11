@@ -7,7 +7,7 @@
 				<div class="singular-grids">
 				<repeat group="{{ @entries }}" value="{{ @entry }}">
 						<div class="singular-grid-center">
-							<h4><a href="{{ @entry->link }}">{{ @entry->title }} posted on {{ @entry->date }}</a></h4>
+							<h4><a href="{{ @entry->link }}">{{ @entry->title }} <span style="font-size:0.6em;">[{{ @entry->date }}]</span></a></h4>
 							<p>{{ @entry->preview }}</p>
 							<a href="{{ @entry->link }}">(...)</a>
 						</div>
