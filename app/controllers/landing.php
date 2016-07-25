@@ -3,7 +3,6 @@ namespace Controllers;
 
 class Landing {
 	public function index() {
-				
 		// Retrieve the current release URL using Github's API
 		if (! \Cache::instance()->exists('release')) {
 			$release = \Helpers\Release::instance();
