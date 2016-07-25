@@ -20,8 +20,9 @@ class Release extends \Prefab {
 		} catch (\Exception $e) {
 			$logger = new \Log('error.log');
 			$logger->write($e->getMessage());
-			// Trigger an error
-			\Base::instance()->error(500);
+			
+			# If the GitHub API is not available we still want to have a funtional website
+			$this->_meta = array("html_url" => "https://github.com/inexor-game/code/releases");
 		}
 	}
 	
