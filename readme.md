@@ -54,6 +54,6 @@ To set up automatic updates you can use composer and cron
 2. Add a cronjob as below
 
 ```
-@hourly sudo -u www-data -c "cd /var/www/inexor && git pull && git submodule update && php composer.phar install"
+@hourly www-data "cd /var/www/inexor && git pull && git submodule update && php composer.phar install"
 ```
 
