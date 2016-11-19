@@ -4,7 +4,7 @@ This is a repository for our website, which is based on the [Fat-Free Framework]
 Use the issue tracker [in our code repository](https://github.com/inexor-game/code/issues) to report bugs or suggest improvments.
 
 ## Setup
-We currently use nginx and php7.0-fpm for our production site.
+We currently use [nginx](https://nginx.org/en/docs/) and [php7.0-fpm](http://php.net/manual/de/migration70.php) for our production site.
 To install in a production environment you should do the following:
 
 1. Install nginx and php7.0-fpm
@@ -41,7 +41,7 @@ server {
 		deny all;
     }
 
-    location /bin {
+    location /composer.phar {
 		deny all;
     }
 }
@@ -50,10 +50,10 @@ server {
 ### Automatically update the site
 To set up automatic updates you can use composer and cron
 
-1. Install composer locally in the inexor directory
+1. [Install composer locally](https://getcomposer.org/doc/00-intro.md#locally) in the inexor directory
 2. Add a cronjob as below
 
 ```
-@hourly sudo -u www-data -c "cd /var/www/inexor && git pull && git submodule update && bin/composer install"
+@hourly sudo -u www-data -c "cd /var/www/inexor && git pull && git submodule update && php composer.phar install"
 ```
 
